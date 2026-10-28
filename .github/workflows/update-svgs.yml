@@ -23,7 +23,11 @@ jobs:
   render:
     runs-on: ubuntu-latest
     steps:
+      # Check out the branch tip, not the triggering SHA: a run that waited in
+      # the concurrency queue must start from the previous run's commit.
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.ref_name }}
 
       - uses: actions/setup-node@v5
         with:
@@ -48,4 +52,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "chore: refresh profile SVGs"
+          # If someone pushed meanwhile, replay on top; on SVG conflicts keep
+          # the freshly generated files (-X theirs = this commit's side).
+          git pull --rebase -X theirs
           git push
