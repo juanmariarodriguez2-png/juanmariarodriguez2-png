@@ -1,0 +1,12 @@
+{
+  "name": "profile-readme",
+  "private": true,
+  "description": "Terminal-style GitHub profile README: SVG generator with zero dependencies",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "generate": "node scripts/generate.mjs"
+  }
+}

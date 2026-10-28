@@ -1,0 +1,4 @@
+# Keep LF everywhere so SVGs generated on Windows and by the Action are
+# byte-identical (otherwise every run would look like a change).
+* text=auto eol=lf
+*.svg text eol=lf
