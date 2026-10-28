@@ -81,4 +81,4 @@ export const contact = [
 ];
 
 /** Languages to leave out of the neofetch language breakdown (e.g. 'HTML'). */
-export const excludedLanguages = [];
+export const excludedLanguages = ['HTML'];
